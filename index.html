@@ -7,129 +7,171 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<nav><a href="#concepto">Concepto</a><a href="#ejercicio">Ejercicio</a><a href="#estrategia">Estrategia elegida</a><a href="#solucion">Resolución</a><a href="#test">Test</a></nav>
-<main>
-<header>
-<h1>Cocinas RESURGE: del requerimiento al modelo E/R</h1>
-<p>Resolución del ejercicio de diseño conceptual con el modelo Entidad-Relación, basada en el capítulo «Estrategias para el diseño de esquemas» del Manual de Base de Datos (Caselli, 2019, págs. 59–72).</p>
-</header>
+    <body>
+    <nav>
+        <a href="#concepto" data-target="concepto">Concepto</a>
+        <a href="#ejercicio" data-target="ejercicio">Ejercicio</a>
+        <a href="#estrategia" data-target="estrategia">Estrategia elegida</a>
+        <a href="#solucion" data-target="solucion">Resolución</a>
+        <a href="#test" data-target="test">Test</a>
+    </nav>
+    <main>
+        <header>
+            <h1>Cocinas RESURGE: del requerimiento al modelo E/R</h1>
+        </header>
 
-<section id="concepto">
-<h2>Concepto del tema</h2>
-<p>Un esquema E/R hecho de forma intuitiva suele dejar semántica sin representar. Para cumplir con todos los requerimientos se sigue una <b>estrategia</b>: partiendo de un esquema inicial, se llega por iteraciones a esquemas cada vez más refinados hasta obtener el esquema final. El manual distingue cuatro estrategias, cada una basada en un tipo de primitivas.</p>
-<div class="grid">
-<div class="box"><h3>Descendente</h3><p>Usa solo primitivas de refinamiento descendente. Parte del dominio de aplicación y añade detalles en cada paso, hasta representar todos los requerimientos.</p></div>
-<div class="box"><h3>Ascendente</h3><p>Usa solo primitivas ascendentes. Parte de conceptos elementales y construye otros más complejos; los requerimientos se conceptualizan por separado y al final se fusionan en un esquema global.</p></div>
-<div class="box"><h3>Centrífuga</h3><p>Caso especial de la ascendente. Se fija el concepto más importante y se avanza como una mancha de aceite hacia los conceptos más cercanos y luego los más distantes.</p></div>
-<div class="box"><h3>Mixta</h3><p>Combina la ascendente y la descendente mediante particiones controladas de los requerimientos.</p></div>
-</div>
-<h3>Cualidades para validar un esquema</h3>
-<div class="wrap"><table>
-<tr><th>Cualidad</th><th>Significa que…</th></tr>
-<tr><td>Complexión</td><td>representa todas las características pertinentes del dominio.</td></tr>
-<tr><td>Corrección</td><td>usa con propiedad los conceptos del modelo (sintáctica y semántica).</td></tr>
-<tr><td>Minimalidad</td><td>cada aspecto de los requerimientos aparece una sola vez.</td></tr>
-<tr><td>Expresividad</td><td>representa los requerimientos de forma natural, sin explicaciones adicionales.</td></tr>
-<tr><td>Legibilidad</td><td>el diagrama cumple criterios estéticos que lo hacen elegante.</td></tr>
-<tr><td>Autoexplicación</td><td>muestra muchas propiedades solo con el modelo conceptual.</td></tr>
-<tr><td>Extensibilidad</td><td>se amplía fácilmente; puede dividirse en módulos o vistas.</td></tr>
-<tr><td>Normalidad</td><td>respeta la teoría de la normalización y evita anomalías de inserción, borrado y actualización.</td></tr>
-</table></div>
-</section>
+        <section id="test" class="active">
+            <h2>Test de 20 preguntas</h2>
+            <p>Basado en las páginas 59 a 72 del manual. Al fallar verás cuál era la respuesta correcta.</p>
+            <div id="quiz" aria-live="polite">
+                <div id="bar"><i></i></div>
+                <div id="qn"></div>
+                <div id="qt"></div>
+                <div id="opts"></div>
+                <div id="fb"></div>
+                <button class="btn" id="nx" hidden>Siguiente</button>
+                <div id="res" hidden></div>
+            </div>
+        </section>
 
-<section id="ejercicio">
-<h2>El ejercicio</h2>
-<p>RESURGE S.A. comercializa cocinas. Se pide el diseño conceptual con el modelo E/R usando la estrategia centrífuga o la mixta, justificando la elección. Requerimientos clave:</p>
-<ul>
-<li><b>Fabricante:</b> nombre, dirección y varios teléfonos; fabrica varios muebles.</li>
-<li><b>Mueble:</b> línea, color, ancho, largo, alto. Categorías excluyentes: alto, bajo (altura sobre el suelo), panel y encimera (mármol o aglomerado).</li>
-<li><b>Distribuidor:</b> nombre, dirección y varios teléfonos; trabaja con al menos un fabricante.</li>
-<li><b>Cocina:</b> la forman muebles de distinto tipo (cada mueble en una sola cocina); interesa el total de muebles y cuántos hay de cada tipo.</li>
-<li>Un distribuidor vende cada cocina en una fecha y puede cederla a otro distribuidor.</li>
-<li><b>Ensamblador:</b> DNI, nombre, dirección, teléfono y nº de cocinas montadas; cada cocina la monta al menos uno.</li>
-<li><b>Cliente:</b> DNI, nombre, dirección, teléfono; compra varias cocinas, y una cocina puede tener varios compradores.</li>
-</ul>
-</section>
+        <section id="concepto">
+            <h2>Concepto del tema</h2>
+            <p>Un esquema E/R hecho de forma intuitiva suele dejar semántica sin representar. Para cumplir con todos los requerimientos se sigue una <b>estrategia</b>: partiendo de un esquema inicial, se llega por iteraciones a esquemas cada vez más refinados hasta obtener el esquema final. El manual distingue cuatro estrategias, cada una basada en un tipo de primitivas.</p>
+            <div class="grid">
+                <div class="box"><h3>Descendente</h3><p>Usa solo primitivas de refinamiento descendente. Parte del dominio de aplicación y añade detalles en cada paso, hasta representar todos los requerimientos.</p></div>
+                <div class="box"><h3>Ascendente</h3><p>Usa solo primitivas ascendentes. Parte de conceptos elementales y construye otros más complejos; los requerimientos se conceptualizan por separado y al final se fusionan en un esquema global.</p></div>
+                <div class="box"><h3>Centrífuga</h3><p>Caso especial de la ascendente. Se fija el concepto más importante y se avanza como una mancha de aceite hacia los conceptos más cercanos y luego los más distantes.</p></div>
+                <div class="box"><h3>Mixta</h3><p>Combina la ascendente y la descendente mediante particiones controladas de los requerimientos.</p></div>
+            </div>
+            <h3>Cualidades para validar un esquema</h3>
+            <div class="wrap"><table>
+                <tr><th>Cualidad</th><th>Significa que…</th></tr>
+                <tr><td>Complexión</td><td>representa todas las características pertinentes del dominio.</td></tr>
+                <tr><td>Corrección</td><td>usa con propiedad los conceptos del modelo (sintáctica y semántica).</td></tr>
+                <tr><td>Minimalidad</td><td>cada aspecto de los requerimientos aparece una sola vez.</td></tr>
+                <tr><td>Expresividad</td><td>representa los requerimientos de forma natural, sin explicaciones adicionales.</td></tr>
+                <tr><td>Legibilidad</td><td>el diagrama cumple criterios estéticos que lo hacen elegante.</td></tr>
+                <tr><td>Autoexplicación</td><td>muestra muchas propiedades solo con el modelo conceptual.</td></tr>
+                <tr><td>Extensibilidad</td><td>se amplía fácilmente; puede dividirse en módulos o vistas.</td></tr>
+                <tr><td>Normalidad</td><td>respeta la teoría de la normalización y evita anomalías de inserción, borrado y actualización.</td></tr>
+            </table></div>
+        </section>
 
-<section id="estrategia">
-<h2>Estrategia elegida: Mixta</h2>
-<div class="box pick"><span class="tag">Elección</span><p>Elijo la <b>estrategia mixta</b>.</p></div>
-<ol class="steps">
-<li><b>Los requerimientos se dividen solos en tres áreas:</b> fabricación (fabricante, mueble, categorías), comercialización (distribuidor, venta, cesión, cliente) y montaje (ensamblador). La mixta permite partir el problema en esas áreas de forma controlada.</li>
-<li><b>No hay un único concepto del que cuelgue todo con claridad.</b> La centrífuga exige empezar por uno y expandirse; aquí la cocina conecta con casi todo, pero los muebles y sus categorías forman un bloque con su propia generalización que conviene resolver aparte.</li>
-<li><b>Se gana extensibilidad y minimalidad:</b> cada módulo se diseña y valida por separado, y al integrarlos se eliminan duplicados (por ejemplo, la entidad Cocina que aparece en varios módulos).</li>
-<li><b>Hay un esquema armazón natural</b> con las entidades principales: Fabricante, Mueble, Cocina, Distribuidor, Ensamblador y Cliente.</li>
-</ol>
-<p>La centrífuga también habría funcionado partiendo de Cocina, pero la mixta refleja mejor la estructura del enunciado.</p>
-</section>
+        <section id="ejercicio">
+        <h2>El ejercicio</h2>
+            <p>RESURGE S.A. comercializa cocinas. Se pide el diseño conceptual con el modelo E/R usando la estrategia centrífuga o la mixta, justificando la elección. Requerimientos clave:</p>
+            <ul>
+                <li><b>Fabricante:</b> nombre, dirección y varios teléfonos; fabrica varios muebles.</li>
+                <li><b>Mueble:</b> línea, color, ancho, largo, alto. Categorías excluyentes: alto, bajo (altura sobre el suelo), panel y encimera (mármol o aglomerado).</li>
+                <li><b>Distribuidor:</b> nombre, dirección y varios teléfonos; trabaja con al menos un fabricante.</li>
+                <li><b>Cocina:</b> la forman muebles de distinto tipo (cada mueble en una sola cocina); interesa el total de muebles y cuántos hay de cada tipo.</li>
+                <li>Un distribuidor vende cada cocina en una fecha y puede cederla a otro distribuidor.</li>
+                <li><b>Ensamblador:</b> DNI, nombre, dirección, teléfono y nº de cocinas montadas; cada cocina la monta al menos uno.</li>
+                <li><b>Cliente:</b> DNI, nombre, dirección, teléfono; compra varias cocinas, y una cocina puede tener varios compradores.</li>
+            </ul>
+        </section>
 
-<section id="solucion">
-<h2>Resolución paso a paso</h2>
-<ol class="steps">
-<li><b>Dominio de aplicación:</b> comercialización de cocinas.</li>
-<li><b>Esquema armazón:</b> entidades principales y sus relaciones generales: <i>Fabricante – fabrica – Mueble</i>, <i>Mueble – compone – Cocina</i>, <i>Distribuidor – vende – Cocina</i>, <i>Ensamblador – monta – Cocina</i>, <i>Cliente – compra – Cocina</i> y <i>Fabricante – trabaja con – Distribuidor</i>.</li>
-<li><b>Módulo de fabricación:</b> se refina Mueble con una generalización total y exclusiva en Mueble alto, Mueble bajo (altura sobre el suelo), Panel y Encimera (tipo: mármol o aglomerado). Los teléfonos son atributos multivaluados.</li>
-<li><b>Módulo de comercialización:</b> Vende lleva el atributo fecha de venta; Cede relaciona dos distribuidores (cedente y receptor) con la cocina; Compra es muchos a muchos entre Cliente y Cocina.</li>
-<li><b>Módulo de montaje:</b> Monta es muchos a muchos entre Ensamblador y Cocina; el número de cocinas montadas es un atributo derivado.</li>
-<li><b>Integración:</b> se unen los módulos sobre las entidades comunes y se obtiene el esquema final.</li>
-</ol>
-<h3>Cardinalidades</h3>
-<div class="wrap"><table>
-<tr><th>Relación</th><th>Entidades (mín, máx)</th><th>Tipo</th></tr>
-<tr><td>Fabrica</td><td>Fabricante (1,n) – Mueble (1,1)</td><td>1:N</td></tr>
-<tr><td>Trabaja con</td><td>Fabricante (0,n) – Distribuidor (1,n)</td><td>N:M</td></tr>
-<tr><td>Compone</td><td>Mueble (0,1) – Cocina (1,n)</td><td>1:N</td></tr>
-<tr><td>Vende (fecha_venta)</td><td>Distribuidor (0,n) – Cocina (0,1)</td><td>1:N</td></tr>
-<tr><td>Cede</td><td>Distribuidor cedente (0,n) – Distribuidor receptor (0,n) – Cocina (0,n)</td><td>Ternaria</td></tr>
-<tr><td>Monta</td><td>Ensamblador (0,n) – Cocina (1,n)</td><td>N:M</td></tr>
-<tr><td>Compra</td><td>Cliente (1,n) – Cocina (1,n)</td><td>N:M</td></tr>
-</table></div>
-<h3>Esquema final (integrado)</h3>
-<div class="wrap">
-<svg viewBox="0 0 1000 680" role="img" aria-label="Diagrama entidad-relación final de RESURGE S.A.">
-<g class="l">
-<path d="M180 70H245M335 70H400"/><path d="M550 70H615M705 70H770"/>
-<path d="M105 122V188M105 232V340"/><path d="M180 386H400" style="display:none"/>
-<path d="M550 386H615M705 386H800V156"/>
-<path d="M880 156V300M880 344V470"/>
-<path d="M475 156V178M475 195L375 230M475 195L485 230M475 195L595 230M475 195L705 230"/>
-<path d="M105 432L190 450M400 372L232 428M400 420L275 450" style="display:none"/>
-<path d="M400 374L270 428M400 410L275 450"/><path d="M230 472V650H955V116H920"/>
-<path d="M550 590H615M705 610H940V70H920" /><path d="M550 590L615 610"/>
-</g>
-<g class="e"><rect x="30" y="30" width="150" height="92"/><rect x="400" y="30" width="150" height="126"/><rect x="770" y="30" width="150" height="126"/><rect x="400" y="340" width="150" height="92"/><rect x="400" y="520" width="150" height="92"/><rect x="770" y="470" width="150" height="109"/><rect x="330" y="230" width="90" height="30"/><rect x="430" y="230" width="110" height="48"/><rect x="550" y="230" width="90" height="30"/><rect x="650" y="230" width="110" height="48"/></g>
-<g class="h"><rect x="30" y="30" width="150" height="24"/><rect x="400" y="30" width="150" height="24"/><rect x="770" y="30" width="150" height="24"/><rect x="400" y="340" width="150" height="24"/><rect x="400" y="520" width="150" height="24"/><rect x="770" y="470" width="150" height="24"/><rect x="330" y="230" width="90" height="22"/><rect x="430" y="230" width="110" height="22"/><rect x="550" y="230" width="90" height="22"/><rect x="650" y="230" width="110" height="22"/></g>
-<g class="d"><path d="M290 48L335 70L290 92L245 70Z"/><path d="M660 48L705 70L660 92L615 70Z"/><path d="M105 188L150 210L105 232L60 210Z"/><path d="M660 364L705 386L660 408L615 386Z"/><path d="M230 428L275 450L230 472L185 450Z"/><path d="M880 300L925 322L880 344L835 322Z"/><path d="M660 588L705 610L660 632L615 610Z"/><path d="M475 170L490 195H460Z"/></g>
-<g text-anchor="middle"><text class="t" x="105" y="47">FABRICANTE</text><text class="t" x="475" y="47">MUEBLE</text><text class="t" x="845" y="47">COCINA</text><text class="t" x="475" y="357">DISTRIBUIDOR</text><text class="t" x="475" y="537">CLIENTE</text><text class="t" x="845" y="487">ENSAMBLADOR</text><text class="t" x="375" y="246" style="font-size:11px">ALTO</text><text class="t" x="485" y="246" style="font-size:11px">BAJO</text><text class="t" x="595" y="246" style="font-size:11px">PANEL</text><text class="t" x="705" y="246" style="font-size:11px">ENCIMERA</text>
-<text class="dt" x="290" y="74">FABRICA</text><text class="dt" x="660" y="74">COMPONE</text><text class="dt" x="105" y="207" style="font-size:10px">TRABAJA</text><text class="dt" x="105" y="219" style="font-size:10px">CON</text><text class="dt" x="660" y="390">VENDE</text><text class="dt" x="230" y="454">CEDE</text><text class="dt" x="880" y="326" style="font-size:11px">MONTA</text><text class="dt" x="660" y="614" style="font-size:11px">COMPRA</text>
-<text x="660" y="428" style="font-size:11px">fecha_venta</text><text x="475" y="190" style="font-size:10px;font-weight:700" dx="-34">(t,e)</text></g>
-<g>
-<text class="pk" x="38" y="72">cod_fab</text><text x="38" y="89">nombre</text><text x="38" y="106">dirección</text><text x="38" y="121">{teléfono}</text>
-<text class="pk" x="408" y="72">cod_mueble</text><text x="408" y="89">línea</text><text x="408" y="106">color</text><text x="408" y="123">ancho</text><text x="408" y="140">largo, alto</text>
-<text class="pk" x="778" y="72">cod_cocina</text><text x="778" y="89">/nº_muebles</text><text x="778" y="106">/nº_altos, /nº_bajos</text><text x="778" y="123">/nº_paneles</text><text x="778" y="140">/nº_encimeras</text>
-<text class="pk" x="408" y="382">cod_dist</text><text x="408" y="399">nombre</text><text x="408" y="416">dirección</text><text x="408" y="430">{teléfono}</text>
-<text class="pk" x="408" y="562">DNI</text><text x="408" y="579">nombre, dirección</text><text x="408" y="596">teléfono</text>
-<text class="pk" x="778" y="512">DNI</text><text x="778" y="529">nombre, dirección</text><text x="778" y="546">teléfono</text><text x="778" y="563">/nº_cocinas_montadas</text>
-<text x="436" y="270">altura_suelo</text><text x="656" y="270">tipo</text>
-<text class="c" x="184" y="62">(1,n)</text><text class="c" x="364" y="62">(1,1)</text><text class="c" x="554" y="62">(0,1)</text><text class="c" x="734" y="62">(1,n)</text><text class="c" x="112" y="140">(0,n)</text><text class="c" x="112" y="330">(1,n)</text><text class="c" x="556" y="378">(0,n)</text><text class="c" x="806" y="176">(0,1)</text><text class="c" x="884" y="176">(1,n)</text><text class="c" x="884" y="462">(0,n)</text><text class="c" x="300" y="400">cedente</text><text class="c" x="300" y="470">receptor</text><text class="c" x="558" y="582">(1,n)</text><text class="c" x="880" y="64">(1,n)</text>
-</g>
-</svg></div>
-<div class="note"><b>Leyenda:</b> atributo subrayado = identificador; {atributo} = multivaluado; /atributo = derivado; triángulo (t,e) = generalización total y exclusiva. Entre Compra y Cocina, el rombo se conecta a Cocina por el lateral derecho; Cede lo hace por una ruta lateral para no cruzar otras entidades.</div>
-</section>
+        <section id="estrategia">
+            <h2>Estrategia elegida: Mixta</h2>
+            <div class="box pick"><span class="tag">Elección</span><p>Elijo la <b>estrategia mixta</b>.</p></div>
+            <ol class="steps">
+                <li><b>Los requerimientos se dividen solos en tres áreas:</b> fabricación (fabricante, mueble, categorías), comercialización (distribuidor, venta, cesión, cliente) y montaje (ensamblador). La mixta permite partir el problema en esas áreas de forma controlada.</li>
+                <li><b>No hay un único concepto del que cuelgue todo con claridad.</b> La centrífuga exige empezar por uno y expandirse; aquí la cocina conecta con casi todo, pero los muebles y sus categorías forman un bloque con su propia generalización que conviene resolver aparte.</li>
+                <li><b>Se gana extensibilidad y minimalidad:</b> cada módulo se diseña y valida por separado, y al integrarlos se eliminan duplicados (por ejemplo, la entidad Cocina que aparece en varios módulos).</li>
+                <li><b>Hay un esquema armazón natural</b> con las entidades principales: Fabricante, Mueble, Cocina, Distribuidor, Ensamblador y Cliente.</li>
+            </ol>
+            <p>La centrífuga también habría funcionado partiendo de Cocina, pero la mixta refleja mejor la estructura del enunciado.</p>
+        </section>
 
-<section id="test">
-<h2>Test de 20 preguntas</h2>
-<p>Basado en las páginas 59 a 72 del manual. Al fallar verás cuál era la respuesta correcta.</p>
-<div id="quiz" aria-live="polite">
-<div id="bar"><i></i></div>
-<div id="qn"></div><div id="qt"></div><div id="opts"></div><div id="fb"></div>
-<button class="btn" id="nx" hidden>Siguiente</button>
-<div id="res" hidden></div>
-</div>
-</section>
-<footer>Fuente: Caselli Gismondi, H. (2019). Manual de Base de Datos, págs. 59–72.</footer>
-</main>
-<script src="script.js"></script>
-</body>
+        <section id="solucion">
+            <h2>Resolución paso a paso</h2>
+            <ol class="steps">
+                <li><b>Dominio de aplicación:</b> comercialización de cocinas.</li>
+                <li><b>Esquema armazón:</b> entidades principales y sus relaciones generales: <i>Fabricante – fabrica – Mueble</i>, <i>Mueble – compone – Cocina</i>, <i>Distribuidor – vende – Cocina</i>, <i>Ensamblador – monta – Cocina</i>, <i>Cliente – compra – Cocina</i> y <i>Fabricante – trabaja con – Distribuidor</i>.</li>
+                <li><b>Módulo de fabricación:</b> se refina Mueble con una generalización total y exclusiva en Mueble alto, Mueble bajo (altura sobre el suelo), Panel y Encimera (tipo: mármol o aglomerado). Los teléfonos son atributos multivaluados.</li>
+                <li><b>Módulo de comercialización:</b> Vende lleva el atributo fecha de venta; Cede relaciona dos distribuidores (cedente y receptor) con la cocina; Compra es muchos a muchos entre Cliente y Cocina.</li>
+                <li><b>Módulo de montaje:</b> Monta es muchos a muchos entre Ensamblador y Cocina; el número de cocinas montadas es un atributo derivado.</li>
+                <li><b>Integración:</b> se unen los módulos sobre las entidades comunes y se obtiene el esquema final.</li>
+            </ol>
+            <h3>Cardinalidades</h3>
+            <div class="wrap">
+                <table>
+                <tr>
+                    <th>Relación</th>
+                    <th>Entidades (mín, máx)</th>
+                    <th>Tipo</th>
+                </tr>
+                <tr>
+                    <td>Fabrica</td>
+                    <td>Fabricante (1,n) – Mueble (1,1)</td>
+                    <td>1:N</td>
+                </tr>
+                <tr>
+                    <td>Trabaja con</td>
+                    <td>Fabricante (0,n) – Distribuidor (1,n)</td>
+                    <td>N:M</td>
+                </tr>
+                <tr>
+                    <td>Compone</td>
+                    <td>Mueble (0,1) – Cocina (1,n)</td>
+                    <td>1:N</td>
+                </tr>
+                <tr>
+                    <td>Vende (fecha_venta)</td>
+                    <td>Distribuidor (0,n) – Cocina (0,1)</td>
+                    <td>1:N</td>
+                </tr>
+                <tr>
+                    <td>Cede</td>
+                    <td>Distribuidor cedente (0,n) – Distribuidor receptor (0,n) – Cocina (0,n)</td>
+                    <td>Ternaria</td>
+                </tr>
+                <tr>
+                    <td>Monta</td>
+                    <td>Ensamblador (0,n) – Cocina (1,n)</td>
+                    <td>N:M</td>
+                </tr>
+                <tr>
+                    <td>Compra</td>
+                    <td>Cliente (1,n) – Cocina (1,n)</td>
+                    <td>N:M</td>
+                </tr>
+                </table>
+            </div>
+            <h3>Esquema final (integrado)</h3>
+            <div class="wrap">
+                <svg viewBox="0 0 1000 680" role="img" aria-label="Diagrama entidad-relación final de RESURGE S.A.">
+                <g class="l">
+                    <path d="M180 70H245M335 70H400"/><path d="M550 70H615M705 70H770"/>
+                    <path d="M105 122V188M105 232V340"/><path d="M180 386H400" style="display:none"/>
+                    <path d="M550 386H615M705 386H800V156"/>
+                    <path d="M880 156V300M880 344V470"/>
+                    <path d="M475 156V178M475 195L375 230M475 195L485 230M475 195L595 230M475 195L705 230"/>
+                    <path d="M105 432L190 450M400 372L232 428M400 420L275 450" style="display:none"/>
+                    <path d="M400 374L270 428M400 410L275 450"/><path d="M230 472V650H955V116H920"/>
+                    <path d="M550 590H615M705 610H940V70H920" /><path d="M550 590L615 610"/>
+                </g>
+                <g class="e"><rect x="30" y="30" width="150" height="92"/><rect x="400" y="30" width="150" height="126"/><rect x="770" y="30" width="150" height="126"/><rect x="400" y="340" width="150" height="92"/><rect x="400" y="520" width="150" height="92"/><rect x="770" y="470" width="150" height="109"/><rect x="330" y="230" width="90" height="30"/><rect x="430" y="230" width="110" height="48"/><rect x="550" y="230" width="90" height="30"/><rect x="650" y="230" width="110" height="48"/></g>
+                <g class="h"><rect x="30" y="30" width="150" height="24"/><rect x="400" y="30" width="150" height="24"/><rect x="770" y="30" width="150" height="24"/><rect x="400" y="340" width="150" height="24"/><rect x="400" y="520" width="150" height="24"/><rect x="770" y="470" width="150" height="24"/><rect x="330" y="230" width="90" height="22"/><rect x="430" y="230" width="110" height="22"/><rect x="550" y="230" width="90" height="22"/><rect x="650" y="230" width="110" height="22"/></g>
+                <g class="d"><path d="M290 48L335 70L290 92L245 70Z"/><path d="M660 48L705 70L660 92L615 70Z"/><path d="M105 188L150 210L105 232L60 210Z"/><path d="M660 364L705 386L660 408L615 386Z"/><path d="M230 428L275 450L230 472L185 450Z"/><path d="M880 300L925 322L880 344L835 322Z"/><path d="M660 588L705 610L660 632L615 610Z"/><path d="M475 170L490 195H460Z"/></g>
+                <g text-anchor="middle"><text class="t" x="105" y="47">FABRICANTE</text><text class="t" x="475" y="47">MUEBLE</text><text class="t" x="845" y="47">COCINA</text><text class="t" x="475" y="357">DISTRIBUIDOR</text><text class="t" x="475" y="537">CLIENTE</text><text class="t" x="845" y="487">ENSAMBLADOR</text><text class="t" x="375" y="246" style="font-size:11px">ALTO</text><text class="t" x="485" y="246" style="font-size:11px">BAJO</text><text class="t" x="595" y="246" style="font-size:11px">PANEL</text><text class="t" x="705" y="246" style="font-size:11px">ENCIMERA</text>
+                <text class="dt" x="290" y="74">FABRICA</text><text class="dt" x="660" y="74">COMPONE</text><text class="dt" x="105" y="207" style="font-size:10px">TRABAJA</text><text class="dt" x="105" y="219" style="font-size:10px">CON</text><text class="dt" x="660" y="390">VENDE</text><text class="dt" x="230" y="454">CEDE</text><text class="dt" x="880" y="326" style="font-size:11px">MONTA</text><text class="dt" x="660" y="614" style="font-size:11px">COMPRA</text>
+                <text x="660" y="428" style="font-size:11px">fecha_venta</text><text x="475" y="190" style="font-size:10px;font-weight:700" dx="-34">(t,e)</text></g>
+                <g>
+                    <text class="pk" x="38" y="72">cod_fab</text><text x="38" y="89">nombre</text><text x="38" y="106">dirección</text><text x="38" y="121">{teléfono}</text>
+                    <text class="pk" x="408" y="72">cod_mueble</text><text x="408" y="89">línea</text><text x="408" y="106">color</text><text x="408" y="123">ancho</text><text x="408" y="140">largo, alto</text>
+                    <text class="pk" x="778" y="72">cod_cocina</text><text x="778" y="89">/nº_muebles</text><text x="778" y="106">/nº_altos, /nº_bajos</text><text x="778" y="123">/nº_paneles</text><text x="778" y="140">/nº_encimeras</text>
+                    <text class="pk" x="408" y="382">cod_dist</text><text x="408" y="399">nombre</text><text x="408" y="416">dirección</text><text x="408" y="430">{teléfono}</text>
+                    <text class="pk" x="408" y="562">DNI</text><text x="408" y="579">nombre, dirección</text><text x="408" y="596">teléfono</text>
+                    <text class="pk" x="778" y="512">DNI</text><text x="778" y="529">nombre, dirección</text><text x="778" y="546">teléfono</text><text x="778" y="563">/nº_cocinas_montadas</text>
+                    <text x="436" y="270">altura_suelo</text><text x="656" y="270">tipo</text>
+                    <text class="c" x="184" y="62">(1,n)</text><text class="c" x="364" y="62">(1,1)</text><text class="c" x="554" y="62">(0,1)</text><text class="c" x="734" y="62">(1,n)</text><text class="c" x="112" y="140">(0,n)</text><text class="c" x="112" y="330">(1,n)</text><text class="c" x="556" y="378">(0,n)</text><text class="c" x="806" y="176">(0,1)</text><text class="c" x="884" y="176">(1,n)</text><text class="c" x="884" y="462">(0,n)</text><text class="c" x="300" y="400">cedente</text><text class="c" x="300" y="470">receptor</text><text class="c" x="558" y="582">(1,n)</text><text class="c" x="880" y="64">(1,n)</text>
+                </g>
+            </svg></div>
+            <div class="note"><b>Leyenda:</b> atributo subrayado = identificador; {atributo} = multivaluado; /atributo = derivado; triángulo (t,e) = generalización total y exclusiva. Entre Compra y Cocina, el rombo se conecta a Cocina por el lateral derecho; Cede lo hace por una ruta lateral para no cruzar otras entidades.</div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+    </body>
 </html>

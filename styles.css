@@ -42,3 +42,13 @@ svg .pk{text-decoration:underline;font-weight:700}
 #res{text-align:center}#res b{display:block;font:800 4rem/1 "Bricolage Grotesque",sans-serif;color:var(--acc)}
 footer{padding:30px 0;color:var(--mut);font-size:.9rem}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* Secciones: solo una visible a la vez */
+main > section,
+main > header {
+  display: none;
+}
+main > section.active,
+main > header.active {
+  display: block;
+}

@@ -45,3 +45,28 @@ function finish(){
 }
 $("nx").onclick=()=>{i++;show()};
 show();
+
+/* Navegación entre secciones: solo una visible a la vez */
+document.querySelectorAll("nav a[data-target]").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const targetId = link.dataset.target;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    document.querySelectorAll("main > section, main > header").forEach(el => {
+      el.classList.toggle("active", el === target);
+    });
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
+/* Asegurar que al cargar haya exactamente una sección activa */
+(function ensureOneActive() {
+  const sections = document.querySelectorAll("main > section, main > header");
+  const actives = [...sections].filter(s => s.classList.contains("active"));
+  if (actives.length === 0 && sections.length) {
+    sections[0].classList.add("active");
+  } else if (actives.length > 1) {
+    actives.slice(1).forEach(s => s.classList.remove("active"));
+  }
+})();
