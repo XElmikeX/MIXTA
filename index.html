@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RESURGE S.A. · Diseño conceptual E/R</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="xd.png">
 </head>
     <body>
     <nav>
@@ -22,7 +23,6 @@
 
         <section id="test" class="active">
             <h2>Test de 20 preguntas</h2>
-            <p>Basado en las páginas 59 a 72 del manual. Al fallar verás cuál era la respuesta correcta.</p>
             <div id="quiz" aria-live="polite">
                 <div id="bar"><i></i></div>
                 <div id="qn"></div>
@@ -73,7 +73,6 @@
 
         <section id="estrategia">
             <h2>Estrategia elegida: Mixta</h2>
-            <div class="box pick"><span class="tag">Elección</span><p>Elijo la <b>estrategia mixta</b>.</p></div>
             <ol class="steps">
                 <li><b>Los requerimientos se dividen solos en tres áreas:</b> fabricación (fabricante, mueble, categorías), comercialización (distribuidor, venta, cesión, cliente) y montaje (ensamblador). La mixta permite partir el problema en esas áreas de forma controlada.</li>
                 <li><b>No hay un único concepto del que cuelgue todo con claridad.</b> La centrífuga exige empezar por uno y expandirse; aquí la cocina conecta con casi todo, pero los muebles y sus categorías forman un bloque con su propia generalización que conviene resolver aparte.</li>
@@ -138,37 +137,10 @@
                 </tr>
                 </table>
             </div>
-            <h3>Esquema final (integrado)</h3>
-            <div class="wrap">
-                <svg viewBox="0 0 1000 680" role="img" aria-label="Diagrama entidad-relación final de RESURGE S.A.">
-                <g class="l">
-                    <path d="M180 70H245M335 70H400"/><path d="M550 70H615M705 70H770"/>
-                    <path d="M105 122V188M105 232V340"/><path d="M180 386H400" style="display:none"/>
-                    <path d="M550 386H615M705 386H800V156"/>
-                    <path d="M880 156V300M880 344V470"/>
-                    <path d="M475 156V178M475 195L375 230M475 195L485 230M475 195L595 230M475 195L705 230"/>
-                    <path d="M105 432L190 450M400 372L232 428M400 420L275 450" style="display:none"/>
-                    <path d="M400 374L270 428M400 410L275 450"/><path d="M230 472V650H955V116H920"/>
-                    <path d="M550 590H615M705 610H940V70H920" /><path d="M550 590L615 610"/>
-                </g>
-                <g class="e"><rect x="30" y="30" width="150" height="92"/><rect x="400" y="30" width="150" height="126"/><rect x="770" y="30" width="150" height="126"/><rect x="400" y="340" width="150" height="92"/><rect x="400" y="520" width="150" height="92"/><rect x="770" y="470" width="150" height="109"/><rect x="330" y="230" width="90" height="30"/><rect x="430" y="230" width="110" height="48"/><rect x="550" y="230" width="90" height="30"/><rect x="650" y="230" width="110" height="48"/></g>
-                <g class="h"><rect x="30" y="30" width="150" height="24"/><rect x="400" y="30" width="150" height="24"/><rect x="770" y="30" width="150" height="24"/><rect x="400" y="340" width="150" height="24"/><rect x="400" y="520" width="150" height="24"/><rect x="770" y="470" width="150" height="24"/><rect x="330" y="230" width="90" height="22"/><rect x="430" y="230" width="110" height="22"/><rect x="550" y="230" width="90" height="22"/><rect x="650" y="230" width="110" height="22"/></g>
-                <g class="d"><path d="M290 48L335 70L290 92L245 70Z"/><path d="M660 48L705 70L660 92L615 70Z"/><path d="M105 188L150 210L105 232L60 210Z"/><path d="M660 364L705 386L660 408L615 386Z"/><path d="M230 428L275 450L230 472L185 450Z"/><path d="M880 300L925 322L880 344L835 322Z"/><path d="M660 588L705 610L660 632L615 610Z"/><path d="M475 170L490 195H460Z"/></g>
-                <g text-anchor="middle"><text class="t" x="105" y="47">FABRICANTE</text><text class="t" x="475" y="47">MUEBLE</text><text class="t" x="845" y="47">COCINA</text><text class="t" x="475" y="357">DISTRIBUIDOR</text><text class="t" x="475" y="537">CLIENTE</text><text class="t" x="845" y="487">ENSAMBLADOR</text><text class="t" x="375" y="246" style="font-size:11px">ALTO</text><text class="t" x="485" y="246" style="font-size:11px">BAJO</text><text class="t" x="595" y="246" style="font-size:11px">PANEL</text><text class="t" x="705" y="246" style="font-size:11px">ENCIMERA</text>
-                <text class="dt" x="290" y="74">FABRICA</text><text class="dt" x="660" y="74">COMPONE</text><text class="dt" x="105" y="207" style="font-size:10px">TRABAJA</text><text class="dt" x="105" y="219" style="font-size:10px">CON</text><text class="dt" x="660" y="390">VENDE</text><text class="dt" x="230" y="454">CEDE</text><text class="dt" x="880" y="326" style="font-size:11px">MONTA</text><text class="dt" x="660" y="614" style="font-size:11px">COMPRA</text>
-                <text x="660" y="428" style="font-size:11px">fecha_venta</text><text x="475" y="190" style="font-size:10px;font-weight:700" dx="-34">(t,e)</text></g>
-                <g>
-                    <text class="pk" x="38" y="72">cod_fab</text><text x="38" y="89">nombre</text><text x="38" y="106">dirección</text><text x="38" y="121">{teléfono}</text>
-                    <text class="pk" x="408" y="72">cod_mueble</text><text x="408" y="89">línea</text><text x="408" y="106">color</text><text x="408" y="123">ancho</text><text x="408" y="140">largo, alto</text>
-                    <text class="pk" x="778" y="72">cod_cocina</text><text x="778" y="89">/nº_muebles</text><text x="778" y="106">/nº_altos, /nº_bajos</text><text x="778" y="123">/nº_paneles</text><text x="778" y="140">/nº_encimeras</text>
-                    <text class="pk" x="408" y="382">cod_dist</text><text x="408" y="399">nombre</text><text x="408" y="416">dirección</text><text x="408" y="430">{teléfono}</text>
-                    <text class="pk" x="408" y="562">DNI</text><text x="408" y="579">nombre, dirección</text><text x="408" y="596">teléfono</text>
-                    <text class="pk" x="778" y="512">DNI</text><text x="778" y="529">nombre, dirección</text><text x="778" y="546">teléfono</text><text x="778" y="563">/nº_cocinas_montadas</text>
-                    <text x="436" y="270">altura_suelo</text><text x="656" y="270">tipo</text>
-                    <text class="c" x="184" y="62">(1,n)</text><text class="c" x="364" y="62">(1,1)</text><text class="c" x="554" y="62">(0,1)</text><text class="c" x="734" y="62">(1,n)</text><text class="c" x="112" y="140">(0,n)</text><text class="c" x="112" y="330">(1,n)</text><text class="c" x="556" y="378">(0,n)</text><text class="c" x="806" y="176">(0,1)</text><text class="c" x="884" y="176">(1,n)</text><text class="c" x="884" y="462">(0,n)</text><text class="c" x="300" y="400">cedente</text><text class="c" x="300" y="470">receptor</text><text class="c" x="558" y="582">(1,n)</text><text class="c" x="880" y="64">(1,n)</text>
-                </g>
-            </svg></div>
-            <div class="note"><b>Leyenda:</b> atributo subrayado = identificador; {atributo} = multivaluado; /atributo = derivado; triángulo (t,e) = generalización total y exclusiva. Entre Compra y Cocina, el rombo se conecta a Cocina por el lateral derecho; Cede lo hace por una ruta lateral para no cruzar otras entidades.</div>
+                <h3>Esquema final (integrado)</h3>
+                <div class="wrap" style="display: flex; justify-content: center; padding: 20px 0;">
+                    <img src="3.jfif" alt="Diagrama entidad-relación final de RESURGE S.A." style="max-width: 100%; height: auto; border: 1.5px solid var(--ink);">
+                </div>
         </section>
 
     </main>
